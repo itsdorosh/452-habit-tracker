@@ -2,13 +2,21 @@ import { useState } from 'react'
 import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
+import ItemForm from './components/ItemForm'
+import ItemList from './components/ItemList'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [habits, setHabits] = useState([])
 
   return (
     <>
+      <section id="habits">
+        <ItemForm />
+        <ItemList items={habits} />
+      </section>
+
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
