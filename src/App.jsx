@@ -10,10 +10,17 @@ function App() {
   const [count, setCount] = useState(0)
   const [habits, setHabits] = useState([])
 
+  const handleAddHabit = (name) => {
+    setHabits((habits) => [
+      ...habits,
+      { id: Date.now(), name, streak: 0 },
+    ])
+  }
+
   return (
     <>
       <section id="habits">
-        <ItemForm />
+        <ItemForm onAdd={handleAddHabit} />
         <ItemList items={habits} />
       </section>
 
